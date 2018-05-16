@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation project(path: ':domain')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+
+    implementation "org.projectlombok:lombok:1.16.14"
+    annotationProcessor 'org.projectlombok:lombok:1.16.14'
+    implementation "com.squareup.okhttp3:okhttp:3.8.1" // okhttp
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.5' // rxjava
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1' // rxandroid
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0' // retrofit2
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0' // retrofit2:converter-gosn
+    implementation "com.google.code.gson:gson:2.3"
+    implementation 'com.google.guava:guava:23.5-android'
+}

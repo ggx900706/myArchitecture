@@ -16,12 +16,11 @@
 package com.data.usecase;
 
 
-import android.support.v4.util.Preconditions;
 
 import com.data.repository.BusinessContructor;
 import com.data.repository.Repository;
 import com.ggx.myapplication.executor.module.executor.UIThread;
-import com.ggx.myapplication.executor.module.repository.IRepository;
+import com.google.common.base.Preconditions;
 
 import java.util.concurrent.Executor;
 
@@ -31,14 +30,6 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
-/**
- * Abstract class for a Use Case (Interactor in terms of Clean Architecture).
- * This interface represents a execution unit for different use cases (this means any use case
- * in the application should implement this contract).
- * <p>
- * By convention each UseCase implementation will return the result using a {@link DisposableObserver}
- * that will execute its job in a background thread and will post the result in the UI thread.
- */
 public abstract class UseCase<T, Params> {
 
     private final Executor executor;

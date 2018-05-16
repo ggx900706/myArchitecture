@@ -1,22 +1,25 @@
 package com.ggx.myarchetecture.presenter.time;
 
+import android.arch.lifecycle.LifecycleOwner;
+
 import com.ggx.myapplication.executor.module.repository.DefaultObserver;
 import com.ggx.myapplication.executor.module.response.ResponseTimeModule;
 import com.data.usecase.time.GetTimeUsecase;
 import com.ggx.myarchetecture.app.Application;
-import com.ggx.myarchetecture.presenter.BasePresenter;
+import com.ggx.myarchetecture.presenter.base.BasePresenter;
 
 /**
  * Created by ggx
  */
 
 public class TimePresenter extends BasePresenter<TimePresenter.IMainActivityInterface> {
+    GetTimeUsecase getTimeUsecase;
 
     public TimePresenter() {
+        getTimeUsecase = new GetTimeUsecase(Application.businessContructor);
     }
 
     public void getTime() {
-        GetTimeUsecase getTimeUsecase = new GetTimeUsecase(Application.businessContructor);
         getTimeUsecase.execute(new TimeObservable(), null);
     }
 
@@ -50,5 +53,20 @@ public class TimePresenter extends BasePresenter<TimePresenter.IMainActivityInte
 
     public interface IMainActivityInterface {
         void getTimeSucces(String timeLong);
+    }
+
+    @Override
+    public void onResume(LifecycleOwner owner) {
+
+    }
+
+    @Override
+    public void onPause(LifecycleOwner owner) {
+
+    }
+
+    @Override
+    public void onStop(LifecycleOwner owner) {
+
     }
 }

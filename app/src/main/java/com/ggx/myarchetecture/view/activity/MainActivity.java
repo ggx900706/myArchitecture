@@ -1,9 +1,10 @@
-package com.ggx.myarchetecture;
+package com.ggx.myarchetecture.view.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.ggx.myarchetecture.R;
 import com.ggx.myarchetecture.presenter.time.TimePresenter;
 
 import butterknife.BindView;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements TimePresenter.IMa
         ButterKnife.bind(this);
         timePresenter = new TimePresenter();
         timePresenter.setView(this);
+        getLifecycle().addObserver(timePresenter);
     }
 
     @Override
@@ -34,5 +36,10 @@ public class MainActivity extends AppCompatActivity implements TimePresenter.IMa
     @OnClick(R.id.btn)
     public void getTime() {
         timePresenter.getTime();
+    }
+
+    @OnClick(R.id.clrBtn)
+    public void clear() {
+        tv.setText("clear");
     }
 }

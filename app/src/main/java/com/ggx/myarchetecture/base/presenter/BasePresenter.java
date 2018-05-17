@@ -1,15 +1,14 @@
-package com.ggx.myarchetecture.presenter.base;
+package com.ggx.myarchetecture.base.presenter;
 
 import android.arch.lifecycle.LifecycleOwner;
 import android.support.annotation.CallSuper;
 
 import com.data.usecase.UseCase;
-import com.ggx.myarchetecture.presenter.base.IBasePresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BasePresenter<T> implements IBasePresenter{
+public abstract class BasePresenter<T> implements IBasePresenter {
 
     protected T iView;
 
@@ -32,12 +31,22 @@ public abstract class BasePresenter<T> implements IBasePresenter{
         return iView;
     }
 
-    public void addUsecase(){
+    public void addUsecase() {
+
+    }
+
+    public void dispose(UseCase useCase) {
+        if (useCase != null)
+            useCase.dispose();
+    }
+
+    @Override
+    public void onResume(LifecycleOwner owner) {
 
     }
 
     @Override
-    public void onStop(LifecycleOwner owner) {
+    public void onPause(LifecycleOwner owner) {
 
     }
 }

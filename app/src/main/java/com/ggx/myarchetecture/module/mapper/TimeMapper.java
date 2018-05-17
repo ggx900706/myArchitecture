@@ -8,7 +8,9 @@ import com.ggx.myarchetecture.module.viewmodule.TimeModule;
  */
 
 public class TimeMapper {
-    public static void transform(ResponseTimeModule responseTimeModule,TimeModule timeModule) {
+    //dataBinding用到的
+    //这里把返回module转化成viewmodule，其中setData函数通知刷新页面
+    public static void transform(ResponseTimeModule responseTimeModule, TimeModule timeModule) {
         timeModule.setApi(responseTimeModule.getApi());
         timeModule.setData(responseTimeModule.getData());
         timeModule.setV(responseTimeModule.getV());

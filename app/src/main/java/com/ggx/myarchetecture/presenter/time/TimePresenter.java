@@ -23,6 +23,9 @@ public class TimePresenter extends BasePresenter {
         getTimeUsecase.execute(new TimeObservable(timeModule), null);
     }
 
+    /*
+    * dataBinding的函数，onStop，暂时不知道怎么用，就给他暂时用来进行usecase的dispose
+    * */
     @Override
     public void onStop(LifecycleOwner owner) {
         dispose(getTimeUsecase);

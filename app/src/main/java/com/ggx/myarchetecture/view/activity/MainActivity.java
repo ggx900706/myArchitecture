@@ -36,10 +36,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //butterknife
         ButterKnife.bind(this);
+        /*
+        * MVP框架只需要这一句，其他处理写在activity里面，需要setContentView(R.layout.activity_main);
+        * */
         //presenter
         timePresenter = new TimePresenter();
+
+        /*
+        *
+        * android lifecycle有关，暂时不知道怎么用，就给他暂时用来进行usecase的dispose
+        * */
         //lifecycle
         getLifecycle().addObserver(timePresenter);
+
+        /*
+        *与dataBinding有关，如果使用，则不需要setContentView(R.layout.activity_main);
+        * */
         //module
         timeModule = new TimeModule();
         //databinding
@@ -48,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getTime(View view) {
-        Log.e("------", "get time");
         timePresenter.getTime(timeModule);
     }
 

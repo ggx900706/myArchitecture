@@ -13,6 +13,10 @@ import io.reactivex.Observable;
  * Created by ggx
  */
 
+/*
+* 第一个泛型是返回值，通常为domain里面的module，第二个泛型为参数
+* 这里就是干净架构的mvp流程，没有不同
+* */
 public class GetTimeUsecase extends UseCase<ResponseTimeModule, Void> {
     public GetTimeUsecase(BusinessContructor businessContructor) {
         super(businessContructor);

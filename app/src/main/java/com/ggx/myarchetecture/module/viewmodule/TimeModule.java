@@ -11,6 +11,7 @@ import lombok.Setter;
 
 /**
  * Created by ggx
+ * viewModule
  */
 
 @AllArgsConstructor
@@ -37,6 +38,7 @@ public class TimeModule extends BaseObservable {
 
     public void setData(String data) {
         this.data = data;
+        //这里只显示这一个值，所以通知刷新页面刷新这一个值
         notifyPropertyChanged(BR.data);
     }
 

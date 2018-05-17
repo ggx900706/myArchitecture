@@ -32,6 +32,8 @@ public class TimeObservable extends DefaultObserver<ResponseTimeModule> {
     @Override
     public void onComplete() {
         super.onComplete();
+
+        //这里使用了dataBinding，把返回值转换成viewModule
         TimeMapper.transform(module, timeModule);
     }
 

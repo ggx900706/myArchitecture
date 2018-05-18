@@ -17,4 +17,11 @@ public class Application extends MultiDexApplication {
         super.onCreate();
         businessContructor = new BusinessContructor(new Client(new Client.ClientConfig()));
     }
+
+    public static void changeURL(String url) {
+        if (businessContructor != null)
+            businessContructor.changeURL(url);
+        else
+            businessContructor = new BusinessContructor(new Client(new Client.ClientConfig(url)));
+    }
 }

@@ -12,10 +12,7 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         initViewDataBinding();
-
-        viewModel.onCreate();
     }
 
     @Override
@@ -26,6 +23,7 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
     private void initViewDataBinding() {
         binding = DataBindingUtil.setContentView(this, getLayoutID());
         binding.setVariable(initVariableId(), viewModel = initViewModel());
+        getLifecycle().addObserver(viewModel);
     }
 
     public abstract int getLayoutID();

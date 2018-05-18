@@ -24,16 +24,20 @@
             android:id="@+id/btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="getTime"
+            android:onClick="@{time::getTime}"
             android:text="获取时间" />
 
         <Button
             android:id="@+id/clrBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="clear"
+            android:onClick="@{time::clear}"
             android:text="清空" />
 
-
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="jumpDouBan"
+            android:text="跳转豆瓣" />
     </LinearLayout>
 </layout>

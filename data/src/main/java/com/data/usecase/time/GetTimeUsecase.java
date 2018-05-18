@@ -1,11 +1,8 @@
 package com.data.usecase.time;
 
 import com.data.repository.BusinessContructor;
-import com.ggx.myapplication.executor.module.executor.UIThread;
 import com.ggx.myapplication.executor.module.response.ResponseTimeModule;
 import com.data.usecase.UseCase;
-
-import java.util.concurrent.Executor;
 
 import io.reactivex.Observable;
 

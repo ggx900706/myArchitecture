@@ -20,4 +20,8 @@ public class BusinessContructor {
         executor = new DefaultExecutor();
         uiThread = UIThread.getInstance();
     }
+
+    public void changeURL(String url) {
+        this.repository = new Repository(new Client(new Client.ClientConfig(url)));
+    }
 }

@@ -6,12 +6,17 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.content.Context;
 import android.databinding.BaseObservable;
+import android.support.v7.app.AlertDialog;
+
+import com.data.usecase.UseCase;
 
 public abstract class BaseViewModel extends BaseObservable implements LifecycleObserver {
     protected Context context;
+    AlertDialog alertDialog;
 
     public BaseViewModel(Context context) {
         this.context = context;
+        alertDialog = new AlertDialog.Builder(context).create();
     }
 
     public void showDialog() {
@@ -20,12 +25,14 @@ public abstract class BaseViewModel extends BaseObservable implements LifecycleO
     public void hideDialog() {
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    abstract void onResume(LifecycleOwner owner);
+    protected void dispose(UseCase useCase) {
+        if (useCase != null)
+            useCase.dispose();
+    }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    abstract void onPause(LifecycleOwner owner);
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    public abstract void onCreate(LifecycleOwner owner);
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    abstract void onStop(LifecycleOwner owner);
+    public abstract void onStop(LifecycleOwner owner);
 }

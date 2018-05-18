@@ -40,7 +40,7 @@ public abstract class UseCase<T, Params> {
     public UseCase(BusinessContructor businessContructor) {
         this.executor = businessContructor.executor;
         this.uiThread = businessContructor.uiThread;
-        this.repository = businessContructor.repository;
+        this.repository = businessContructor.taobaoRepository;
         this.disposables = new CompositeDisposable();
     }
 

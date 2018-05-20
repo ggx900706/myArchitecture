@@ -19,7 +19,7 @@ package com.data.usecase;
 
 import com.data.repository.BusinessContructor;
 import com.data.repository.Repository;
-import com.ggx.myapplication.executor.module.executor.UIThread;
+import com.ggx.myapplication.executor.executor.UIThread;
 import com.google.common.base.Preconditions;
 
 import java.util.concurrent.Executor;
@@ -40,7 +40,7 @@ public abstract class UseCase<T, Params> {
     public UseCase(BusinessContructor businessContructor) {
         this.executor = businessContructor.executor;
         this.uiThread = businessContructor.uiThread;
-        this.repository = businessContructor.taobaoRepository;
+        this.repository = businessContructor.repository;
         this.disposables = new CompositeDisposable();
     }
 

@@ -1,8 +1,8 @@
 package com.data.repository;
 
 import com.data.net.Client;
-import com.ggx.myapplication.executor.module.executor.DefaultExecutor;
-import com.ggx.myapplication.executor.module.executor.UIThread;
+import com.ggx.myapplication.executor.executor.DefaultExecutor;
+import com.ggx.myapplication.executor.executor.UIThread;
 
 import java.util.concurrent.Executor;
 

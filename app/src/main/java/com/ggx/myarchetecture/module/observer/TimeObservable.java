@@ -1,6 +1,6 @@
 package com.ggx.myarchetecture.module.observer;
 
-import com.ggx.myapplication.executor.module.repository.DefaultObserver;
+import com.ggx.myapplication.executor.repository.DefaultObserver;
 import com.ggx.myapplication.executor.module.response.ResponseTimeModule;
 import com.ggx.myarchetecture.module.viewmodule.TimeModule;
 import com.ggx.myarchetecture.module.mapper.TimeMapper;

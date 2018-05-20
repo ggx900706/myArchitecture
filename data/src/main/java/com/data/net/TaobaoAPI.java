@@ -1,6 +1,6 @@
 package com.data.net;
 
-import com.data.entity.response.ResponseTimeEntity;
+import com.ggx.myapplication.executor.entity.response.ResponseTimeEntity;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;

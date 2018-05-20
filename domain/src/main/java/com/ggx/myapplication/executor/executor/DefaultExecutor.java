@@ -1,4 +1,4 @@
-package com.ggx.myapplication.executor.module.executor;
+package com.ggx.myapplication.executor.executor;
 
 import android.support.annotation.NonNull;
 

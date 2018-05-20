@@ -31,7 +31,11 @@ public class DouBanMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dou_ban_main);
         ButterKnife.bind(this);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         Application.changeURL(URL_TAOBAO_DUISHI);
     }
 

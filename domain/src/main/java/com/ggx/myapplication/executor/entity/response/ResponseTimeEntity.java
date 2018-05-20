@@ -1,4 +1,4 @@
-package com.data.entity.response;
+package com.ggx.myapplication.executor.entity.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

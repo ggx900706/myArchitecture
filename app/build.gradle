@@ -46,4 +46,11 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.1.5'
 
     implementation 'com.google.code.gson:gson:2.3'
+
+    compile 'com.facebook.fresco:fresco:1.5.0'
+    compile 'com.facebook.fresco:animated-gif:1.5.0'//加载gif动图需添加此库
+    compile 'com.facebook.fresco:animated-webp:1.5.0'//加载webp动图需添加此库
+    compile 'com.facebook.fresco:webpsupport:1.5.0'//支持webp需添加此库
+    compile 'com.facebook.fresco:imagepipeline-okhttp3:1.5.0'//网络实现层使用okhttp3需添加此库
+    compile 'jp.wasabeef:fresco-processors:2.1.0@aar'//用于提供fresco的各种图片变换
 }

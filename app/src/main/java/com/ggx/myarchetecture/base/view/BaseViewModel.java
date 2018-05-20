@@ -10,8 +10,13 @@ import android.support.v7.app.AlertDialog;
 
 import com.data.usecase.UseCase;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class BaseViewModel extends BaseObservable implements LifecycleObserver {
-    protected Context context;
+    public Context context;
     AlertDialog alertDialog;
 
     public BaseViewModel(Context context) {

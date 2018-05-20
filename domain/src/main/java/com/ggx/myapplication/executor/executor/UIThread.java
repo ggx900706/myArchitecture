@@ -1,4 +1,4 @@
-package com.ggx.myapplication.executor.module.executor;
+package com.ggx.myapplication.executor.executor;
 
 import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;

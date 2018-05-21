@@ -5,7 +5,9 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.databinding.BindingAdapter;
 import android.widget.ImageView;
 
+import com.data.usecase.film.GetTop250FilmListUseCase;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.ggx.myarchetecture.app.Application;
 import com.ggx.myarchetecture.base.view.BaseViewModel;
 
 import java.util.List;
@@ -34,15 +36,14 @@ public class SimpleFilmModule extends BaseViewModel {
     String original_title;
     String subtype;
     List<Person> directors;
-    String year;
+    public String year;
     public String imagePath;
     public String rating;
     String alt;
     String id;
 
-    @BindingAdapter({"bind:imageUrl"})
-    public static void loadImage(ImageView view, String imageUrl) {
-    }
+
+    GetTop250FilmListUseCase useCase;
 
     @Override
     public void onCreate(LifecycleOwner owner) {
@@ -50,6 +51,5 @@ public class SimpleFilmModule extends BaseViewModel {
 
     @Override
     public void onStop(LifecycleOwner owner) {
-
     }
 }

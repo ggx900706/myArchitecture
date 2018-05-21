@@ -12,10 +12,8 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
     protected T iView;
 
-    private List<UseCase> useCaseList;
 
     public BasePresenter() {
-        useCaseList = new ArrayList<>();
     }
 
     public void setView(T view) {

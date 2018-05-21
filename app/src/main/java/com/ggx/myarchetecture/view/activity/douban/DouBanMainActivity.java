@@ -1,6 +1,7 @@
 package com.ggx.myarchetecture.view.activity.douban;
 
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,6 +32,8 @@ public class DouBanMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dou_ban_main);
         ButterKnife.bind(this);
+
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override
@@ -39,7 +42,17 @@ public class DouBanMainActivity extends AppCompatActivity {
         Application.changeURL(URL_TAOBAO_DUISHI);
     }
 
-    public void search(View view) {
+    PagerAdapter pagerAdapter = new PagerAdapter() {
+        @Override
+        public int getCount() {
+            return 5;
+        }
 
-    }
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return false;
+        }
+
+
+    };
 }

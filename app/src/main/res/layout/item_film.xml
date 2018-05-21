@@ -21,22 +21,24 @@
 
         <ImageView
             android:layout_width="80dp"
-            android:layout_height="120dp"
-            app:imageUrl="@{item.imagePath}" />
+            android:layout_height="120dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:text="@{item.title}" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:text="@{item.rating}" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:text="@{item.year}" />
     </LinearLayout>
 </layout>

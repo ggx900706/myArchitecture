@@ -4,6 +4,7 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.content.Context;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
@@ -44,6 +45,7 @@ public class TimeModule extends BaseViewModel {
         this.data = data;
         //这里只显示这一个值，所以通知刷新页面刷新这一个值
         notifyPropertyChanged(BR.data);
+        new Handler().postDelayed(() -> hideLoadingDialog(), 2000);
     }
 
     public void setApi(String api) {
@@ -71,6 +73,7 @@ public class TimeModule extends BaseViewModel {
      * databinding的按钮点击事件
      */
     public void getTime(View view) {
+        showLoadingDialog();
         getTimeUsecase.execute(new TimeObservable(this), null);
     }
 

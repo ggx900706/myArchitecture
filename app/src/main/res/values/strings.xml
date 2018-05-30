@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MyArchetecture</string>
+    <string name="dialog_progress_text">读取中，请稍候...</string>
+    <string name="douban_tab_on_theaters">正在热映</string>
 </resources>

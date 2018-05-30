@@ -74,7 +74,7 @@ public class Client {
 
         public ClientConfig() {
             //默认进入淘宝对时api
-            apiBaseUrl = "http://api.m.taobao.com/";
+            apiBaseUrl = URL_TAOBAO_DUISHI;
         }
 
         public ClientConfig(String url) {

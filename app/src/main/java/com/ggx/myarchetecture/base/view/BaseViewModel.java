@@ -9,6 +9,7 @@ import android.databinding.BaseObservable;
 import android.support.v7.app.AlertDialog;
 
 import com.data.usecase.UseCase;
+import com.ggx.myarchetecture.base.dialogs.LoadingDialog;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -17,17 +18,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public abstract class BaseViewModel extends BaseObservable implements LifecycleObserver {
     public Context context;
-    AlertDialog alertDialog;
 
-    public BaseViewModel(Context context) {
-        this.context = context;
-        alertDialog = new AlertDialog.Builder(context).create();
-    }
-
-    public void showDialog() {
-    }
-
-    public void hideDialog() {
+    public BaseViewModel(Context activity) {
+        this.context = activity;
     }
 
     protected void dispose(UseCase useCase) {
@@ -40,4 +33,18 @@ public abstract class BaseViewModel extends BaseObservable implements LifecycleO
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     public abstract void onStop(LifecycleOwner owner);
+
+    LoadingDialog loadingDialog;
+
+    public void showLoadingDialog() {
+        if (loadingDialog == null)
+            loadingDialog = new LoadingDialog(context);
+        if (!loadingDialog.isShowing())
+            loadingDialog.show();
+    }
+
+    public void hideLoadingDialog() {
+        if (loadingDialog != null && loadingDialog.isShowing())
+            loadingDialog.dismiss();
+    }
 }

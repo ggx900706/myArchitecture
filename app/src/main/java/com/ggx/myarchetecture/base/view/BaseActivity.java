@@ -1,34 +1,25 @@
 package com.ggx.myarchetecture.base.view;
 
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseViewModel> extends AppCompatActivity {
-    protected V binding;
-    protected VM viewModel;
+import com.ggx.myarchetecture.base.dialogs.LoadingDialog;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        initViewDataBinding();
+/**
+ * Created by ggx on 2018/5/29.
+ */
+
+public class BaseActivity extends AppCompatActivity {
+    LoadingDialog loadingDialog;
+
+    public void showLoadingDialog() {
+        if (loadingDialog == null)
+            loadingDialog = new LoadingDialog(this);
+        if (!loadingDialog.isShowing())
+            loadingDialog.show();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void hideLoadingDialog() {
+        if (loadingDialog != null && loadingDialog.isShowing())
+            loadingDialog.dismiss();
     }
-
-    private void initViewDataBinding() {
-        binding = DataBindingUtil.setContentView(this, getLayoutID());
-        binding.setVariable(initVariableId(), viewModel = initViewModel());
-        getLifecycle().addObserver(viewModel);
-    }
-
-    public abstract int getLayoutID();
-
-    public abstract int initVariableId();
-
-    public abstract VM initViewModel();
 }

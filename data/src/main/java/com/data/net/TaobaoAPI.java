@@ -11,6 +11,4 @@ import retrofit2.http.Query;
  */
 
 public interface TaobaoAPI {
-    @GET("rest/api3.do?")
-    Observable<ResponseTimeEntity> getSysTime(@Query("api") String string);
 }

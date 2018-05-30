@@ -41,5 +41,6 @@ public class TimeObservable extends DefaultObserver<ResponseTimeModule> {
     public void onError(Throwable throwable) {
         super.onError(throwable);
         throwable.printStackTrace();
+        timeModule.setData("error : " + throwable.toString());
     }
 }

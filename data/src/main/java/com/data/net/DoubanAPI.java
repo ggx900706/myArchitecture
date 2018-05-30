@@ -10,13 +10,4 @@ import retrofit2.http.GET;
  */
 
 public interface DoubanAPI {
-
-    @GET("movie/in_theaters")
-    Observable<ResponseFilmListEntity> getInTheaters(int start, int count);
-
-    @GET("movie/top250")
-    Observable<ResponseFilmListEntity> getTop250(int start, int count);
-
-    @GET("movie/coming_soon")
-    Observable<ResponseFilmListEntity> getComming(int start, int count);
 }

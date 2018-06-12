@@ -38,7 +38,7 @@ public class InTheatersFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, getLayoutID(), container, false);
-        presenter = new Top250Presenter();
+//        presenter = new Top250Presenter();
         return binding.getRoot();
     }
 

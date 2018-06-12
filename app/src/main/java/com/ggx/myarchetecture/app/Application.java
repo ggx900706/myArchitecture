@@ -1,12 +1,11 @@
 package com.ggx.myarchetecture.app;
 
+import android.os.Environment;
 import android.support.multidex.MultiDexApplication;
 
 import com.data.net.Client;
 import com.data.repository.BusinessContructor;
-import com.facebook.cache.disk.DiskCacheConfig;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.core.ImagePipelineConfig;
+import com.ggx.imagecache.ImageCacheUtil;
 
 /**
  * Created by ggx
@@ -21,6 +20,8 @@ public class Application extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         businessContructor = new BusinessContructor(new Client(new Client.ClientConfig()));
+
+        ImageCacheUtil.init(this, null, "path");
     }
 
     public static void changeURL(String url) {
@@ -28,14 +29,5 @@ public class Application extends MultiDexApplication {
             businessContructor.changeURL(url);
         else
             businessContructor = new BusinessContructor(new Client(new Client.ClientConfig(url)));
-    }
-
-    private void initImage() {
-        ImagePipelineConfig.Builder imagePipelineConfigBuilder = ImagePipelineConfig.newBuilder(this);
-        imagePipelineConfigBuilder.setMainDiskCacheConfig(DiskCacheConfig.newBuilder(this)
-                .setBaseDirectoryPath(getExternalCacheDir())//设置磁盘缓存的路径
-                .setBaseDirectoryName("image")//设置磁盘缓存文件夹的名称
-                .build());
-        Fresco.initialize(this, imagePipelineConfigBuilder.build());
     }
 }

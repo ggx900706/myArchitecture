@@ -1,0 +1,38 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    testImplementation 'junit:junit:4.12'
+
+    compile 'com.facebook.fresco:fresco:1.5.0'
+    compile 'com.facebook.fresco:animated-gif:1.5.0'//加载gif动图需添加此库
+    compile 'com.facebook.fresco:animated-webp:1.5.0'//加载webp动图需添加此库
+    compile 'com.facebook.fresco:webpsupport:1.5.0'//支持webp需添加此库
+    compile 'com.facebook.fresco:imagepipeline-okhttp3:1.5.0'//网络实现层使用okhttp3需添加此库
+    compile 'jp.wasabeef:fresco-processors:2.1.0@aar'//用于提供fresco的各种图片变换
+}

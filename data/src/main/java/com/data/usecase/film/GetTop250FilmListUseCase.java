@@ -1,8 +1,13 @@
 package com.data.usecase.film;
 
+import android.support.annotation.IntDef;
+
 import com.data.repository.BusinessContructor;
 import com.data.usecase.UseCase;
 import com.ggx.myapplication.executor.entity.response.film.ResponseFilmListModule;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
 import io.reactivex.Observable;
 import lombok.AllArgsConstructor;
@@ -19,6 +24,10 @@ public class GetTop250FilmListUseCase extends UseCase<ResponseFilmListModule, Ge
     public static final int Comming = 1;
     public static final int In_Theaters = 2;
 
+    @IntDef({Top_250,Comming,In_Theaters})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface GetTop250FilmList{};
+
     public GetTop250FilmListUseCase(BusinessContructor businessContructor) {
         super(businessContructor);
     }
@@ -32,7 +41,7 @@ public class GetTop250FilmListUseCase extends UseCase<ResponseFilmListModule, Ge
     @AllArgsConstructor
     @NoArgsConstructor
     public static class Params {
-        int index = In_Theaters;
+        @GetTop250FilmList int index = In_Theaters;
         int start = 0;
         int count = 20;
     }

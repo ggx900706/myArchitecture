@@ -32,7 +32,7 @@ public abstract class BaseFragment extends Fragment {
         View view = inflater.inflate(getLayoutID(), null);
         bindView(view);
         init(view);
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return view;
     }
 
     /*

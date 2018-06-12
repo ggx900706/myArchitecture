@@ -1,6 +1,6 @@
 package com.ggx.myarchetecture.module.viewmodule.film;
 
-import com.ggx.myarchetecture.module.viewmodule.film.simple.SimpleFilmModule;
+import com.ggx.myapplication.executor.entity.response.film.simple.SimpleFilmModule;
 
 import java.util.List;
 

@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/data/data.iml" filepath="$PROJECT_DIR$/data/data.iml" />
       <module fileurl="file://$PROJECT_DIR$/domain/domain.iml" filepath="$PROJECT_DIR$/domain/domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/imagecache/imagecache.iml" filepath="$PROJECT_DIR$/imagecache/imagecache.iml" />
-      <module fileurl="file://E:\code\myArchitecture\imagecache\imagecache.iml" filepath="E:\code\myArchitecture\imagecache\imagecache.iml" />
       <module fileurl="file://$PROJECT_DIR$/myArchitecture.iml" filepath="$PROJECT_DIR$/myArchitecture.iml" />
     </modules>
   </component>

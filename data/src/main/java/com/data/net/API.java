@@ -3,15 +3,19 @@ package com.data.net;
 import com.ggx.myapplication.executor.entity.response.ResponseTimeEntity;
 import com.ggx.myapplication.executor.entity.response.film.ResponseFilmListEntity;
 
+import java.util.Map;
+
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
+import retrofit2.http.Url;
 
 /**
  * Created by ggx on 2018/5/15.
  */
 
-public interface API{
+public interface API {
     //taobao api
     @GET("rest/api3.do?")
     Observable<ResponseTimeEntity> getSysTime(@Query("api") String string);
@@ -25,4 +29,6 @@ public interface API{
 
     @GET("movie/coming_soon")
     Observable<ResponseFilmListEntity> getComming(int start, int count);
+
+    Observable<String> commonGet(@Url String url, @QueryMap Map queryMap);
 }

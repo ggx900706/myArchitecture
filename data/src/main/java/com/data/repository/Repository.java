@@ -8,6 +8,8 @@ import com.ggx.myapplication.executor.repository.ITimeRepository;
 import com.ggx.myapplication.executor.module.response.ResponseTimeModule;
 import com.ggx.myapplication.executor.entity.response.film.ResponseFilmListModule;
 
+import java.util.Map;
+
 import io.reactivex.Observable;
 
 import static com.data.usecase.film.GetTop250FilmListUseCase.Comming;
@@ -29,6 +31,11 @@ public class Repository implements IDoubanRepository, ITimeRepository {
     @Override
     public Observable<ResponseTimeModule> getSysTime(String str) {
         return client.getAPI().getSysTime(str).map(TimeMapper::transform);
+    }
+
+    @Override
+    public Observable<String> getCommon(String string, Map param) {
+        return client.getAPI().commonGet(string,param);
     }
 
     @Override

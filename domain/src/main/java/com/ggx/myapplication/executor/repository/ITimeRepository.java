@@ -2,6 +2,8 @@ package com.ggx.myapplication.executor.repository;
 
 import com.ggx.myapplication.executor.module.response.ResponseTimeModule;
 
+import java.util.Map;
+
 import io.reactivex.Observable;
 
 /**
@@ -9,5 +11,7 @@ import io.reactivex.Observable;
  */
 
 public interface ITimeRepository {
-    public Observable<ResponseTimeModule> getSysTime(String str);
+    Observable<ResponseTimeModule> getSysTime(String str);
+
+    Observable<String> getCommon(String string, Map param);
 }

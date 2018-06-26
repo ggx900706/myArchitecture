@@ -4,6 +4,8 @@ import com.data.mapper.TimeMapper;
 import com.data.net.Client;
 import com.ggx.myapplication.executor.module.response.ResponseTimeModule;
 
+import java.util.Map;
+
 import io.reactivex.Observable;
 
 /**
@@ -20,5 +22,9 @@ public class Repository {
 
     public Observable<ResponseTimeModule> getSysTime(String str) {
         return client.getAPI().getSysTime(str).map(TimeMapper::transform);
+    }
+
+    public Observable<String> getCommon(String string, Map param) {
+        return client.getAPI().commonGet(string, param);
     }
 }

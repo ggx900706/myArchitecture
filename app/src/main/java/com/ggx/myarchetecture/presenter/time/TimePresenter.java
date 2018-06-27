@@ -38,17 +38,21 @@ public class TimePresenter extends BasePresenter<TimePresenter.IMainActivityInte
     }
 
     public void getTime() {
-//        getTimeUsecase.execute(new TimeObservable(), null);
+        //正经的流程
+        //getTimeUsecase.execute(new TimeObservable(), null);
+
+        //通用get接口，参数为url和param类，param是query参数键值对，返回值为String，需要iCommonHttpInterface进行处理
         Map<String, String> param = new HashMap<>();
         param.put("api", "mtop.common.getTimestamp");
         commonGetUsecase.execute(new CommonObservable(iCommonHttpInterface), new CommonGetUsecase.GetCommonParam("http://api.m.taobao.com/rest/api3.do", param));
 
+        //通用Post接口，参数为url和jsonObject实体类，返回值为String，需要iCommonHttpInterface进行处理
         JsonObject jsonObject = new JsonObject();
         JsonObject type = new JsonObject();
         type.addProperty("type", "app");
         jsonObject.add("data", type);
         commonPostUsecase.execute(new CommonObservable(new ICommonHttpInterface() {
-                }), new CommonPostUsecase.CommonPostParam("http://47.93.242.117:8098/art-app/area/phoneCode", jsonObject));
+        }), new CommonPostUsecase.CommonPostParam("http://47.93.242.117:8098/art-app/area/phoneCode", jsonObject));
     }
 
     private class TimeObservable extends DefaultObserver<ResponseTimeModule> {

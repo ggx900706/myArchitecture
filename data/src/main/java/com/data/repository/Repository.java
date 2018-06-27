@@ -27,7 +27,11 @@ public class Repository {
         return client.getAPI().getSysTime(str).map(TimeMapper::transform);
     }
 
-    public Observable<JsonObject> getCommon(String string, Map<String,String> param) {
+    public Observable<JsonObject> commonGet(String string, Map<String, String> param) {
         return client.getAPI().commonGet(string, param);
+    }
+
+    public Observable<JsonObject> commonPost(String url, JsonObject param) {
+        return client.getAPI().commonPost(url, param);
     }
 }

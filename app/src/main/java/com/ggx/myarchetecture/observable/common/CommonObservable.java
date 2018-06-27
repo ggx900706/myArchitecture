@@ -12,11 +12,11 @@ import java.lang.reflect.ParameterizedType;
  * Created by ggx on 2018/6/21.
  */
 
-public class GetCommonObservable extends DefaultObserver<JsonObject> {
+public class CommonObservable extends DefaultObserver<JsonObject> {
     String result;
     ICommonHttpInterface iCommonHttpInterface;
 
-    public GetCommonObservable(ICommonHttpInterface iCommonHttpInterface) {
+    public CommonObservable(ICommonHttpInterface iCommonHttpInterface) {
         this.iCommonHttpInterface = iCommonHttpInterface;
     }
 
@@ -40,6 +40,6 @@ public class GetCommonObservable extends DefaultObserver<JsonObject> {
     @Override
     public void onError(Throwable throwable) {
         super.onError(throwable);
-        iCommonHttpInterface.onFailed(throwable.getMessage());
+        iCommonHttpInterface.onException(throwable);
     }
 }

@@ -13,7 +13,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements TimePresenter.IMainActivityInterface , ICommonHttpInterface{
+public class MainActivity extends AppCompatActivity implements TimePresenter.IMainActivityInterface, ICommonHttpInterface {
 
     @BindView(R.id.tv)
     TextView tv;
@@ -48,11 +48,12 @@ public class MainActivity extends AppCompatActivity implements TimePresenter.IMa
 
     @Override
     public void onSuccess(String result) {
-        Log.e("------","common result : " + result);
+        Log.e("------", "get result : " + result);
     }
 
     @Override
-    public void onFailed(String errorMessage) {
-        Log.e("------","common error : " + errorMessage);
+    public void onException(Throwable throwable) {
+        throwable.printStackTrace();
+        Log.e("------", "get error : " + throwable.toString());
     }
 }

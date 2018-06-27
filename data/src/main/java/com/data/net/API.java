@@ -8,7 +8,9 @@ import org.json.JSONObject;
 import java.util.Map;
 
 import io.reactivex.Observable;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
@@ -22,5 +24,8 @@ public interface API {
     Observable<ResponseTimeEntity> getSysTime(@Query("api") String string);
 
     @GET
-    Observable<JsonObject> commonGet(@Url String url, @QueryMap Map<String,String> queryMap);
+    Observable<JsonObject> commonGet(@Url String url, @QueryMap Map<String, String> queryMap);
+
+    @POST
+    Observable<JsonObject> commonPost(@Url String url, @Body JsonObject body);
 }

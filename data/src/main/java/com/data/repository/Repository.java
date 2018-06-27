@@ -3,6 +3,9 @@ package com.data.repository;
 import com.data.mapper.TimeMapper;
 import com.data.net.Client;
 import com.ggx.myapplication.executor.module.response.ResponseTimeModule;
+import com.google.gson.JsonObject;
+
+import org.json.JSONObject;
 
 import java.util.Map;
 
@@ -24,7 +27,7 @@ public class Repository {
         return client.getAPI().getSysTime(str).map(TimeMapper::transform);
     }
 
-    public Observable<String> getCommon(String string, Map param) {
+    public Observable<JsonObject> getCommon(String string, Map<String,String> param) {
         return client.getAPI().commonGet(string, param);
     }
 }

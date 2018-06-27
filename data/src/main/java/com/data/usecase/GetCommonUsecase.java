@@ -2,6 +2,9 @@ package com.data.usecase;
 
 import com.data.repository.BusinessContructor;
 import com.data.usecase.UseCase;
+import com.google.gson.JsonObject;
+
+import org.json.JSONObject;
 
 import java.util.Map;
 
@@ -14,14 +17,14 @@ import lombok.NoArgsConstructor;
  * Created by ggx on 2018/6/21.
  */
 
-public class GetCommonUsecase extends UseCase<String, GetCommonUsecase.GetCommonParam> {
+public class GetCommonUsecase extends UseCase<JsonObject, GetCommonUsecase.GetCommonParam> {
 
     public GetCommonUsecase(BusinessContructor businessContructor) {
         super(businessContructor);
     }
 
     @Override
-    protected Observable<String> buildUseCaseObservable(GetCommonParam getCommonParam) {
+    protected Observable<JsonObject> buildUseCaseObservable(GetCommonParam getCommonParam) {
         return repository.getCommon(getCommonParam.url, getCommonParam.param);
     }
 

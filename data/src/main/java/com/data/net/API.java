@@ -1,6 +1,9 @@
 package com.data.net;
 
 import com.data.entity.response.ResponseTimeEntity;
+import com.google.gson.JsonObject;
+
+import org.json.JSONObject;
 
 import java.util.Map;
 
@@ -19,5 +22,5 @@ public interface API {
     Observable<ResponseTimeEntity> getSysTime(@Query("api") String string);
 
     @GET
-    Observable<String> commonGet(@Url String url, @QueryMap Map queryMap);
+    Observable<JsonObject> commonGet(@Url String url, @QueryMap Map<String,String> queryMap);
 }

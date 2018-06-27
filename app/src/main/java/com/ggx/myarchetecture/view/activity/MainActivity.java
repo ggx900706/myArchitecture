@@ -2,16 +2,18 @@ package com.ggx.myarchetecture.view.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.ggx.myarchetecture.R;
+import com.ggx.myarchetecture.observable.common.ICommonHttpInterface;
 import com.ggx.myarchetecture.presenter.time.TimePresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements TimePresenter.IMainActivityInterface {
+public class MainActivity extends AppCompatActivity implements TimePresenter.IMainActivityInterface , ICommonHttpInterface{
 
     @BindView(R.id.tv)
     TextView tv;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements TimePresenter.IMa
         ButterKnife.bind(this);
         timePresenter = new TimePresenter();
         timePresenter.setView(this);
+        timePresenter.setICommonHttpInterface(this);
         getLifecycle().addObserver(timePresenter);
     }
 
@@ -41,5 +44,15 @@ public class MainActivity extends AppCompatActivity implements TimePresenter.IMa
     @OnClick(R.id.clrBtn)
     public void clear() {
         tv.setText("clear");
+    }
+
+    @Override
+    public void onSuccess(String result) {
+        Log.e("------","common result : " + result);
+    }
+
+    @Override
+    public void onFailed(String errorMessage) {
+        Log.e("------","common error : " + errorMessage);
     }
 }

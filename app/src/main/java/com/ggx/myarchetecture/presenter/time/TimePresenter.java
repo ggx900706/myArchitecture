@@ -55,8 +55,12 @@ public class TimePresenter extends BasePresenter<TimePresenter.IMainActivityInte
         }), new CommonPostUsecase.CommonPostParam("http://47.93.242.117:8098/art-app/area/phoneCode", jsonObject));
     }
 
-    private class TimeObservable extends DefaultObserver<ResponseTimeModule> {
+    private class TimeObservable extends DefaultObserver<ResponseTimeModule,ICommonHttpInterface> {
         ResponseTimeModule module;
+
+        public TimeObservable(ICommonHttpInterface iView) {
+            super(iView);
+        }
 
         @Override
         protected void onStart() {

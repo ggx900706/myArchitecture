@@ -8,12 +8,13 @@ import android.widget.TextView;
 import com.ggx.myarchetecture.R;
 import com.ggx.myarchetecture.observable.common.ICommonHttpInterface;
 import com.ggx.myarchetecture.presenter.time.TimePresenter;
+import com.ggx.myarchetecture.view.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements TimePresenter.IMainActivityInterface, ICommonHttpInterface {
+public class MainActivity extends BaseActivity implements TimePresenter.IMainActivityInterface, ICommonHttpInterface {
 
     @BindView(R.id.tv)
     TextView tv;

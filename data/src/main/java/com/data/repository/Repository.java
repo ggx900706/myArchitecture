@@ -2,10 +2,9 @@ package com.data.repository;
 
 import com.data.mapper.TimeMapper;
 import com.data.net.Client;
+import com.ggx.myapplication.executor.module.response.ResponseData;
 import com.ggx.myapplication.executor.module.response.ResponseTimeModule;
 import com.google.gson.JsonObject;
-
-import org.json.JSONObject;
 
 import java.util.Map;
 
@@ -33,5 +32,10 @@ public class Repository {
 
     public Observable<JsonObject> commonPost(String url, JsonObject param) {
         return client.getAPI().commonPost(url, param);
+    }
+
+
+    public Observable<ResponseData<String>> tempAPI(){
+        return client.getAPI().tempAPI();
     }
 }

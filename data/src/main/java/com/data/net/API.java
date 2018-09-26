@@ -1,6 +1,7 @@
 package com.data.net;
 
 import com.data.entity.response.ResponseTimeEntity;
+import com.ggx.myapplication.executor.module.response.ResponseData;
 import com.google.gson.JsonObject;
 
 import org.json.JSONObject;
@@ -8,6 +9,7 @@ import org.json.JSONObject;
 import java.util.Map;
 
 import io.reactivex.Observable;
+import lombok.Getter;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -28,4 +30,8 @@ public interface API {
 
     @POST
     Observable<JsonObject> commonPost(@Url String url, @Body JsonObject body);
+
+    //以下接口作为范例，假如返回值成功与否的判断
+    @GET
+    Observable<ResponseData<String>> tempAPI();
 }

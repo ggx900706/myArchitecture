@@ -1,6 +1,7 @@
 package com.data.repository;
 
 import com.data.mapper.TimeMapper;
+import com.data.net.CheckSuccess;
 import com.data.net.Client;
 import com.ggx.myapplication.executor.module.response.ResponseData;
 import com.ggx.myapplication.executor.module.response.ResponseTimeModule;
@@ -35,7 +36,7 @@ public class Repository {
     }
 
 
-    public Observable<ResponseData<String>> tempAPI(){
-        return client.getAPI().tempAPI();
+    public Observable<ResponseData<String>> tempAPI() {
+        return client.getAPI().tempAPI().map(CheckSuccess::checkSuccess);
     }
 }

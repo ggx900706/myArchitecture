@@ -5,6 +5,7 @@ import android.support.multidex.MultiDexApplication;
 
 import com.data.net.Client;
 import com.data.repository.BusinessContructor;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.ggx.imagecache.ImageCacheUtil;
 
 /**
@@ -22,6 +23,7 @@ public class Application extends MultiDexApplication {
         businessContructor = new BusinessContructor(new Client(new Client.ClientConfig()));
 
         ImageCacheUtil.init(this, null, "path");
+        Fresco.initialize(this);
     }
 
     public static void changeURL(String url) {

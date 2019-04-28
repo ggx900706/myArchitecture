@@ -8,6 +8,9 @@ import com.data.repository.BusinessContructor;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.ggx.imagecache.ImageCacheUtil;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 /**
  * Created by ggx
  */
@@ -22,5 +25,8 @@ public class Application extends MultiDexApplication {
 
         ImageCacheUtil.init(this, null, "path");
         Fresco.initialize(this);
+
+        Realm.init(this);
+        Realm.setDefaultConfiguration(new RealmConfiguration.Builder().build());
     }
 }

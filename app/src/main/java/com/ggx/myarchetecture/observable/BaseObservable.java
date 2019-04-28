@@ -9,8 +9,17 @@ import com.ggx.myapplication.executor.module.repository.ILoadDataInterface;
  */
 
 public class BaseObservable<T, I extends ILoadDataInterface> extends DefaultObserver<T, I> {
+    protected T result;
+    protected I iView;
+
     public BaseObservable(I iView) {
         super(iView);
+        this.iView = iView;
+    }
+
+    @Override
+    public void onNext(T t) {
+        result = t;
     }
 
     @Override

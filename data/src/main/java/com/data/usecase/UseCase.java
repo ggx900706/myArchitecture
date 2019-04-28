@@ -32,9 +32,9 @@ import io.reactivex.schedulers.Schedulers;
 
 public abstract class UseCase<T, Params> {
 
-    private final Executor executor;
-    private final UIThread uiThread;
-    private final CompositeDisposable disposables;
+    protected final Executor executor;
+    protected final UIThread uiThread;
+    protected final CompositeDisposable disposables;
     public Repository repository;
 
     public UseCase(BusinessContructor businessContructor) {
@@ -77,7 +77,7 @@ public abstract class UseCase<T, Params> {
     /**
      * Dispose from current {@link CompositeDisposable}.
      */
-    private void addDisposable(Disposable disposable) {
+    protected void addDisposable(Disposable disposable) {
         Preconditions.checkNotNull(disposable);
         Preconditions.checkNotNull(disposables);
         disposables.add(disposable);

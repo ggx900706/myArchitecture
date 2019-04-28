@@ -1,5 +1,10 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'realm-android'
+realm {
+    syncEnabled = true;
+}
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -40,5 +45,10 @@ dependencies {
 
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.5'
+
     implementation "com.google.code.gson:gson:2.3"
+
+    //realm
+//    annotationProcessor "io.realm:realm-annotations:5.0.0"
+//    annotationProcessor "io.realm:realm-annotations-processor:5.0.0"
 }

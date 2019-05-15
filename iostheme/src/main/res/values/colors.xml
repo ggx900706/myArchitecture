@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorBottomTextSelected">#8C9CFD</color>
+
+    <color name="color_main">#04C1F3</color>
+    <color name="color_background">#F6F6F6</color>
+    <color name="color_sub_gray">#888888</color>
+
+    <color name="color_actionsheet_blue">#037BFF</color>
+
+    <color name="text_color_myself_text">#8C9CFD</color>
+    <color name="text_color_black">#000000</color>
+    <color name="text_color_gray">#666666</color>
+    <color name="text_color_light_gray">#CCCCCC</color>
+    <color name="text_color_red">#FB4E44</color>
+    <color name="text_color_white">#FFFFFF</color>
+    <color name="text_color_8d">#8d8d8d</color>
+</resources>
